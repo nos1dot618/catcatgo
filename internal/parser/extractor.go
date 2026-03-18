@@ -73,7 +73,6 @@ func extractFunctionParameters(functionDeclaratorNode *ts.Node, source []byte) [
 }
 
 func extractFunctionReturnType(node *ts.Node, source []byte) string {
-	// TODO: Complete this.
 	returnTypeNode := node.ChildByFieldName("type")
 	if returnTypeNode == nil {
 		return "void"
