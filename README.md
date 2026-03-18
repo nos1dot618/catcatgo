@@ -5,8 +5,34 @@ Language agnostic library API search engine. Inspired by [Hoogle](https://hoogle
 
 ## Getting Started
 
+Download [stb_image.h](https://github.com/nothings/stb/blob/master/stb_image.h) for testing.
+
+### GNU/Linux
+
 ```shell
-go run .
+mkdir -p dump data
+curl -L -o dump/stb_image.h https://raw.githubusercontent.com/nothings/stb/refs/heads/master/stb_image.h
+```
+
+### Windows
+
+```powershell
+New-Item -ItemType Directory -Force -Path dump, data
+curl.exe -L -o dump/stb_image.h https://raw.githubusercontent.com/nothings/stb/master/stb_image.h
+```
+
+## Test
+
+```shell
+go run .\cmd\cli\main.go "stbi__context *s -> stbi_uc* out"
+```
+
+> Searches for all the functions with sigature containing the query.
+
+Output:
+
+```console
+stbi__tga_read_rgb16 :: stbi__context *s -> stbi_uc* out -> void
 ```
 
 ## References
